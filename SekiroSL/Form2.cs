@@ -94,6 +94,7 @@ namespace SekiroSL
         private void ApplyButton_Click(object sender, EventArgs e)
         {
             Settings1.Default.Language = comboBox1.Text;
+            Settings1.Default.GameDirectory = textBox4.Text;
             Settings1.Default.Save();
             (Owner as Form1).ReTranslateForm();
             Close();

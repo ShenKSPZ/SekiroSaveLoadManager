@@ -120,6 +120,7 @@ namespace SekiroSL
         private void Settings_Click(object sender, EventArgs e)
         {
             f2.ShowDialog();
+            Settings1.Default.Upgrade();
         }
 
         private void LoadButton_Click(object sender, EventArgs e)
@@ -144,7 +145,6 @@ namespace SekiroSL
                 File.Copy(Settings1.Default.GameDirectory, Environment.CurrentDirectory + @"\Save\" + comboBox1.Text + @"\"  + index.ToString() + Settings1.Default.SaveFileName, false);
                 comboBox1_SelectedIndexChanged(null, null);
             }
-            
         }
 
         private void ReplaceSave_Click(object sender, EventArgs e)
