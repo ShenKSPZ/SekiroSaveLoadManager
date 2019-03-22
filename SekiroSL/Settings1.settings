@@ -17,5 +17,11 @@
     <Setting Name="SaveFileName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">S0000.sl2</Value>
     </Setting>
+    <Setting Name="Version" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Alpha1.0</Value>
+    </Setting>
+    <Setting Name="Font" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Arial Narrow, 10.5pt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

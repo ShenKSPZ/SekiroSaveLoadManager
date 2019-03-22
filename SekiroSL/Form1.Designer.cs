@@ -55,12 +55,13 @@
             // listBox1
             // 
             this.listBox1.ContextMenuStrip = this.contextMenuStrip1;
+            this.listBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(12, 38);
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(12, 45);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox1.Size = new System.Drawing.Size(573, 268);
+            this.listBox1.Size = new System.Drawing.Size(573, 264);
             this.listBox1.TabIndex = 3;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -129,10 +130,10 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Font = new System.Drawing.Font("宋体", 9F);
+            this.SaveButton.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SaveButton.Location = new System.Drawing.Point(182, 312);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(164, 26);
+            this.SaveButton.Size = new System.Drawing.Size(164, 32);
             this.SaveButton.TabIndex = 4;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -140,10 +141,10 @@
             // 
             // ReplaceButton
             // 
-            this.ReplaceButton.Font = new System.Drawing.Font("宋体", 9F);
+            this.ReplaceButton.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ReplaceButton.Location = new System.Drawing.Point(352, 312);
             this.ReplaceButton.Name = "ReplaceButton";
-            this.ReplaceButton.Size = new System.Drawing.Size(164, 26);
+            this.ReplaceButton.Size = new System.Drawing.Size(164, 32);
             this.ReplaceButton.TabIndex = 5;
             this.ReplaceButton.Text = "Replace";
             this.ReplaceButton.UseVisualStyleBackColor = true;
@@ -152,10 +153,11 @@
             // comboBox1
             // 
             this.comboBox1.ContextMenuStrip = this.contextMenuStrip2;
+            this.comboBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(12, 12);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(451, 20);
+            this.comboBox1.Size = new System.Drawing.Size(451, 28);
             this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.Click += new System.EventHandler(this.comboBox1_Click);
@@ -185,10 +187,10 @@
             // 
             // NewProflie
             // 
-            this.NewProflie.Font = new System.Drawing.Font("宋体", 9F);
+            this.NewProflie.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NewProflie.Location = new System.Drawing.Point(469, 12);
             this.NewProflie.Name = "NewProflie";
-            this.NewProflie.Size = new System.Drawing.Size(118, 20);
+            this.NewProflie.Size = new System.Drawing.Size(118, 27);
             this.NewProflie.TabIndex = 7;
             this.NewProflie.Text = "New Profile";
             this.NewProflie.UseVisualStyleBackColor = true;
@@ -197,11 +199,11 @@
             // LoadButton
             // 
             this.LoadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.LoadButton.Font = new System.Drawing.Font("宋体", 9F);
+            this.LoadButton.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LoadButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.LoadButton.Location = new System.Drawing.Point(12, 310);
             this.LoadButton.Name = "LoadButton";
-            this.LoadButton.Size = new System.Drawing.Size(164, 28);
+            this.LoadButton.Size = new System.Drawing.Size(164, 34);
             this.LoadButton.TabIndex = 0;
             this.LoadButton.Text = "Load";
             this.LoadButton.UseVisualStyleBackColor = true;

@@ -160,6 +160,11 @@ namespace SekiroSL
             f3.ShowDialog();
             DirectoryInfo[] di = Dir.GetDirectories();
             comboBox1.DataSource = di;
+            if(comboBox1.Text != "")
+            {
+                renameToolStripMenuItem1.Enabled = true;
+                deleteToolStripMenuItem1.Enabled = true;
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -296,6 +301,7 @@ namespace SekiroSL
 
         private void comboBox1_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(comboBox1.Items.Count);
             if (comboBox1.Items.Count == 0 || comboBox1.Text == "")
             {
                 deleteToolStripMenuItem1.Enabled = false;

@@ -41,10 +41,10 @@ namespace SekiroSL
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(@"C:\Users\"+Environment.UserName+@"\AppData\Roaming\Sekiro"))
+            if (Directory.Exists(Environment.GetEnvironmentVariable("systemdrive") + @"\Users\" + Environment.UserName+@"\AppData\Roaming\Sekiro"))
             {
-                openFileDialog1.FileName = @"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Sekiro";
-                DirectoryInfo Dir = new DirectoryInfo(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Sekiro");
+                openFileDialog1.FileName = Environment.GetEnvironmentVariable("systemdrive") + @"\Users\" + Environment.UserName + @"\AppData\Roaming\Sekiro";
+                DirectoryInfo Dir = new DirectoryInfo(Environment.GetEnvironmentVariable("systemdrive") + @"\Users\" + Environment.UserName + @"\AppData\Roaming\Sekiro");
                 DirectoryInfo[] di = Dir.GetDirectories();
                 if(di.Count() == 1)
                 {

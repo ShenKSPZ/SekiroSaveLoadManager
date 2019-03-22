@@ -20,6 +20,7 @@ namespace SekiroSL
 
         private void Form5_Load(object sender, EventArgs e)
         {
+            Text = (Owner as Form1).Jo["Rename"].ToString();
             label1.Text = (Owner as Form1).Jo["Rename"].ToString();
             button1.Text = (Owner as Form1).Jo["Apply"].ToString();
             textBox1.Text = (Owner as Form1).nameofre;
