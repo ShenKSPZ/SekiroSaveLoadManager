@@ -268,6 +268,7 @@
             this.ClearButton2.TabIndex = 7;
             this.ClearButton2.Text = "Clear";
             this.ClearButton2.UseVisualStyleBackColor = true;
+            this.ClearButton2.Click += new System.EventHandler(this.ClearButton2_Click);
             // 
             // ClearButton1
             // 
@@ -278,6 +279,7 @@
             this.ClearButton1.TabIndex = 6;
             this.ClearButton1.Text = "Clear";
             this.ClearButton1.UseVisualStyleBackColor = true;
+            this.ClearButton1.Click += new System.EventHandler(this.ClearButton1_Click);
             // 
             // label3
             // 
@@ -399,7 +401,6 @@
             this.AcceptButton = this.ApplyButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(296, 494);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);

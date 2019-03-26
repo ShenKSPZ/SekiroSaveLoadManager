@@ -466,5 +466,15 @@ namespace SekiroSL
                 e.Handled = true;
             }
         }
+
+        private void ClearButton1_Click(object sender, EventArgs e)
+        {
+            LoadHotkey.Text = "";
+        }
+
+        private void ClearButton2_Click(object sender, EventArgs e)
+        {
+            SaveHotKey.Text = "";
+        }
     }
 }
