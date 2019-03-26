@@ -79,7 +79,7 @@ namespace SekiroSL {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alpha1.0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alpha1.2")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -95,6 +95,66 @@ namespace SekiroSL {
             }
             set {
                 this["Font"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public global::System.Windows.Forms.Keys SaveHotkey {
+            get {
+                return ((global::System.Windows.Forms.Keys)(this["SaveHotkey"]));
+            }
+            set {
+                this["SaveHotkey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public global::System.Windows.Forms.Keys LoadHotkey {
+            get {
+                return ((global::System.Windows.Forms.Keys)(this["LoadHotkey"]));
+            }
+            set {
+                this["LoadHotkey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SaveModifier {
+            get {
+                return ((int)(this["SaveModifier"]));
+            }
+            set {
+                this["SaveModifier"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int LoadModifier {
+            get {
+                return ((int)(this["LoadModifier"]));
+            }
+            set {
+                this["LoadModifier"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Mute")]
+        public string SoundType {
+            get {
+                return ((string)(this["SoundType"]));
+            }
+            set {
+                this["SoundType"] = value;
             }
         }
     }

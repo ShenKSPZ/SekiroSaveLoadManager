@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Media;
 
 namespace SekiroSL
 {
@@ -26,6 +27,8 @@ namespace SekiroSL
         public JObject Jo = new JObject();
         public DirectoryInfo Dir = new DirectoryInfo(Environment.CurrentDirectory + @"\Save\");
         public string nameofre = "";
+        SoundPlayer Savemp3 = new SoundPlayer();
+        SoundPlayer Loadmp3 = new SoundPlayer();
 
         public Form1()
         {
@@ -57,6 +60,29 @@ namespace SekiroSL
                 renameToolStripMenuItem1.Enabled = false;
             }
             SortToolStripMenuItem.Available = false;
+            listBox1_SelectedIndexChanged(null,null);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_HOTKEY = 0x0312;//如果m.Msg的值为0x0312那么表示用户按下了热键
+            switch (m.Msg)
+            {
+                case WM_HOTKEY:
+                    switch (m.WParam.ToInt32())
+                    {
+                        case 1:
+                            Savemp3.Play();
+                            SaveButton_Click(null, null);
+                            break;
+                        case 2:
+                            Loadmp3.Play();
+                            LoadButton_Click(null, null);
+                            break;
+                    }
+                    break;
+            }
+            base.WndProc(ref m);
         }
 
         public void ReTranslateForm()
@@ -75,6 +101,21 @@ namespace SekiroSL
             naturalSortAZToolStripMenuItem.Text = Jo["NaturalSortAZ"].ToString();
             standardSortZAToolStripMenuItem.Text = Jo["StandardSortZA"].ToString();
             naturalSortZAToolStripMenuItem.Text = Jo["NaturalSortZA"].ToString();
+
+            if (Settings1.Default.SaveHotkey != Keys.None)
+            {
+                Hotkeys.RegisterHotKey(Handle, 1, Settings1.Default.SaveModifier, Settings1.Default.SaveHotkey);
+            }
+            if (Settings1.Default.LoadHotkey != Keys.None)
+            {
+                Hotkeys.RegisterHotKey(Handle, 2, Settings1.Default.LoadModifier, Settings1.Default.LoadHotkey);
+            }
+            if (Settings1.Default.SoundType != "Mute")
+            {
+                Loadmp3.SoundLocation = Environment.CurrentDirectory + @"\Sound\" + Settings1.Default.SoundType + "Load.wav";
+                Savemp3.SoundLocation = Environment.CurrentDirectory + @"\Sound\" + Settings1.Default.SoundType + "Save.wav";
+                Console.WriteLine(Environment.CurrentDirectory + @"\Sound\" + Settings1.Default.SoundType + "Save.wav");
+            }
         }
         public static string FileToString(string filePath)
         {
@@ -104,21 +145,31 @@ namespace SekiroSL
             {
                 renameToolStripMenuItem.Enabled = false;
                 deleteToolStripMenuItem.Enabled = true;
+                LoadButton.Enabled = false;
+                SaveButton.Enabled = true;
+                ReplaceButton.Enabled = false;
             }
-            else if (listBox1.SelectedIndices.Count < 0)
+            else if (listBox1.SelectedIndices.Count <= 0)
             {
                 renameToolStripMenuItem.Enabled = false;
                 deleteToolStripMenuItem.Enabled = false;
+                LoadButton.Enabled = false;
+                ReplaceButton.Enabled = false;
             }
             else
             {
                 renameToolStripMenuItem.Enabled = true;
                 deleteToolStripMenuItem.Enabled = true;
+                LoadButton.Enabled = true;
+                SaveButton.Enabled = true;
+                ReplaceButton.Enabled = true;
             }
         }
 
         private void Settings_Click(object sender, EventArgs e)
         {
+            Hotkeys.UnregisterHotKey(Handle, 1);
+            Hotkeys.UnregisterHotKey(Handle, 2);
             f2.ShowDialog();
             Settings1.Default.Upgrade();
         }
@@ -173,7 +224,20 @@ namespace SekiroSL
             DirectoryInfo root = new DirectoryInfo(Environment.CurrentDirectory + @"\Save\" + comboBox1.Text);
             FileInfo[] files = root.GetFiles();
             listBox1.DataSource = files;
-            
+            if(comboBox1.Text != "")
+            {
+                SaveButton.Enabled = true;
+            }
+            else
+            {
+                SaveButton.Enabled = false;
+            }
+
+            if(listBox1.Items.Count == 0)
+            {
+                LoadButton.Enabled = false;
+                ReplaceButton.Enabled = false;
+            }
         }
 
         private void standardSortAZToolStripMenuItem_Click(object sender, EventArgs e)
@@ -295,6 +359,10 @@ namespace SekiroSL
                 if(comboBox1.Items.Count == 0)
                 {
                     comboBox1.Text = "";
+                    listBox1.DataSource = null;
+                    LoadButton.Enabled = false;
+                    SaveButton.Enabled = false;
+                    ReplaceButton.Enabled = false;
                 }
             }
         }
@@ -307,6 +375,12 @@ namespace SekiroSL
                 deleteToolStripMenuItem1.Enabled = false;
                 renameToolStripMenuItem1.Enabled = false;
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Hotkeys.UnregisterHotKey(Handle, 1);
+            Hotkeys.UnregisterHotKey(Handle, 2);
         }
     }
 }

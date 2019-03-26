@@ -87,6 +87,7 @@
     <Compile Include="Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hotkeys.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings1.Designer.cs">
@@ -144,6 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\opened.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-64.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
