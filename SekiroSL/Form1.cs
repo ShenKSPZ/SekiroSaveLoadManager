@@ -185,6 +185,9 @@ namespace SekiroSL
             {
                 File.Copy(Settings1.Default.GameDirectory, Environment.CurrentDirectory + @"\Save\" + comboBox1.Text + @"\" + Settings1.Default.SaveFileName, false);
                 comboBox1_SelectedIndexChanged(null, null);
+                listBox1.SelectionMode = SelectionMode.One;
+                listBox1.Text = Settings1.Default.SaveFileName;
+                listBox1.SelectionMode = SelectionMode.MultiExtended;
             }
             else
             {
@@ -195,6 +198,9 @@ namespace SekiroSL
                 }
                 File.Copy(Settings1.Default.GameDirectory, Environment.CurrentDirectory + @"\Save\" + comboBox1.Text + @"\"  + index.ToString() + Settings1.Default.SaveFileName, false);
                 comboBox1_SelectedIndexChanged(null, null);
+                listBox1.SelectionMode = SelectionMode.One;
+                listBox1.Text = index.ToString() + Settings1.Default.SaveFileName;
+                listBox1.SelectionMode = SelectionMode.MultiExtended;
             }
         }
 

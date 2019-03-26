@@ -201,7 +201,7 @@ namespace SekiroSL
                 SaveMValue += 1;
             Settings1.Default.LoadModifier = LoadMValue;
             Settings1.Default.SaveModifier = SaveMValue;
-            if(LoadHotkey.Text != "Back" && LoadHotkey.Text != "Space" && LoadHotkey.Text != "")
+            if(LoadHotkey.Text != "Back" && LoadHotkey.Text != "Space" && LoadHotkey.Text != "" && LoadHotkey.Text != "None")
             {
                 char[] Temp = LoadHotkey.Text.ToCharArray();
                 Settings1.Default.LoadHotkey = (Keys)Temp[0];
@@ -219,7 +219,7 @@ namespace SekiroSL
                 Settings1.Default.LoadHotkey = Keys.None;
             }
 
-            if (SaveHotKey.Text != "Back" && SaveHotKey.Text != "Space" && SaveHotKey.Text != "")
+            if (SaveHotKey.Text != "Back" && SaveHotKey.Text != "Space" && SaveHotKey.Text != "" && SaveHotKey.Text != "None")
             {
                 char[] Temp = SaveHotKey.Text.ToCharArray();
                 Settings1.Default.SaveHotkey = (Keys)Temp[0];
@@ -262,6 +262,8 @@ namespace SekiroSL
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            Settings1.Default.Reload();
+            (Owner as Form1).ReTranslateForm();
             Close();
         }
 
@@ -469,12 +471,14 @@ namespace SekiroSL
 
         private void ClearButton1_Click(object sender, EventArgs e)
         {
-            LoadHotkey.Text = "";
+            LoadHotkey.Text = "None";
+            checkBox4.Checked = true;
         }
 
         private void ClearButton2_Click(object sender, EventArgs e)
         {
-            SaveHotKey.Text = "";
+            SaveHotKey.Text = "None";
+            checkBox5.Checked = true;
         }
     }
 }
