@@ -48,8 +48,7 @@ namespace SekiroSL
             }
             Language = FileToString(Environment.CurrentDirectory + @"\Localization\" + Settings1.Default.Language);
             Jo = (JObject)JsonConvert.DeserializeObject(Language);
-            //Translating UI
-            ReTranslateForm();
+            //ReTranslateForm();
             DirectoryInfo[] di = Dir.GetDirectories();
             comboBox1.DataSource = di;
             renameToolStripMenuItem.Enabled = false;
@@ -105,10 +104,12 @@ namespace SekiroSL
             if (Settings1.Default.SaveHotkey != Keys.None)
             {
                 Hotkeys.RegisterHotKey(Handle, 1, Settings1.Default.SaveModifier, Settings1.Default.SaveHotkey);
+                Console.WriteLine("SuccessREGIS");
             }
             if (Settings1.Default.LoadHotkey != Keys.None)
             {
                 Hotkeys.RegisterHotKey(Handle, 2, Settings1.Default.LoadModifier, Settings1.Default.LoadHotkey);
+                Console.WriteLine("SuccessREGIS");
             }
             if (Settings1.Default.SoundType != "Mute")
             {
@@ -214,7 +215,19 @@ namespace SekiroSL
 
         private void NewProflie_Click(object sender, EventArgs e)
         {
+            Hotkeys.UnregisterHotKey(Handle, 1);
+            Hotkeys.UnregisterHotKey(Handle, 2);
             f3.ShowDialog();
+            if (Settings1.Default.SaveHotkey != Keys.None)
+            {
+                Hotkeys.RegisterHotKey(Handle, 1, Settings1.Default.SaveModifier, Settings1.Default.SaveHotkey);
+                Console.WriteLine("SuccessREGIS");
+            }
+            if (Settings1.Default.LoadHotkey != Keys.None)
+            {
+                Hotkeys.RegisterHotKey(Handle, 2, Settings1.Default.LoadModifier, Settings1.Default.LoadHotkey);
+                Console.WriteLine("SuccessREGIS");
+            }
             DirectoryInfo[] di = Dir.GetDirectories();
             comboBox1.DataSource = di;
             if(comboBox1.Text != "")
@@ -273,8 +286,20 @@ namespace SekiroSL
 
         private void renameToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Hotkeys.UnregisterHotKey(Handle, 1);
+            Hotkeys.UnregisterHotKey(Handle, 2);
             nameofre = listBox1.Text;
             f5.ShowDialog();
+            if (Settings1.Default.SaveHotkey != Keys.None)
+            {
+                Hotkeys.RegisterHotKey(Handle, 1, Settings1.Default.SaveModifier, Settings1.Default.SaveHotkey);
+                Console.WriteLine("SuccessREGIS");
+            }
+            if (Settings1.Default.LoadHotkey != Keys.None)
+            {
+                Hotkeys.RegisterHotKey(Handle, 2, Settings1.Default.LoadModifier, Settings1.Default.LoadHotkey);
+                Console.WriteLine("SuccessREGIS");
+            }
         }
 
         public bool Rename(string Name)
@@ -316,8 +341,20 @@ namespace SekiroSL
 
         private void renameToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Hotkeys.UnregisterHotKey(Handle, 1);
+            Hotkeys.UnregisterHotKey(Handle, 2);
             nameofre = comboBox1.Text;
             f6.ShowDialog();
+            if (Settings1.Default.SaveHotkey != Keys.None)
+            {
+                Hotkeys.RegisterHotKey(Handle, 1, Settings1.Default.SaveModifier, Settings1.Default.SaveHotkey);
+                Console.WriteLine("SuccessREGIS");
+            }
+            if (Settings1.Default.LoadHotkey != Keys.None)
+            {
+                Hotkeys.RegisterHotKey(Handle, 2, Settings1.Default.LoadModifier, Settings1.Default.LoadHotkey);
+                Console.WriteLine("SuccessREGIS");
+            }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -387,6 +424,11 @@ namespace SekiroSL
         {
             Hotkeys.UnregisterHotKey(Handle, 1);
             Hotkeys.UnregisterHotKey(Handle, 2);
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            ReTranslateForm();
         }
     }
 }

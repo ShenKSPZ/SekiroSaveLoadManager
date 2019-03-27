@@ -133,9 +133,79 @@ namespace SekiroSL
             {
                 checkBox5.Checked = true;
             }
+            switch(Settings1.Default.LoadHotkey.ToString())
+            {
+                case "D0":
+                    LoadHotkey.Text = "0";
+                    break;
+                case "D1":
+                    LoadHotkey.Text = "1";
+                    break;
+                case "D2":
+                    LoadHotkey.Text = "2";
+                    break;
+                case "D3":
+                    LoadHotkey.Text = "3";
+                    break;
+                case "D4":
+                    LoadHotkey.Text = "4";
+                    break;
+                case "D5":
+                    LoadHotkey.Text = "5";
+                    break;
+                case "D6":
+                    LoadHotkey.Text = "6";
+                    break;
+                case "D7":
+                    LoadHotkey.Text = "7";
+                    break;
+                case "D8":
+                    LoadHotkey.Text = "8";
+                    break;
+                case "D9":
+                    LoadHotkey.Text = "9";
+                    break;
+                default:
+                    LoadHotkey.Text = Settings1.Default.LoadHotkey.ToString();
+                    break;
+            }
 
-            LoadHotkey.Text = Settings1.Default.LoadHotkey.ToString();
-            SaveHotKey.Text = Settings1.Default.SaveHotkey.ToString();
+            switch (Settings1.Default.SaveHotkey.ToString())
+            {
+                case "D0":
+                    SaveHotKey.Text = "0";
+                    break;
+                case "D1":
+                    SaveHotKey.Text = "1";
+                    break;
+                case "D2":
+                    SaveHotKey.Text = "2";
+                    break;
+                case "D3":
+                    SaveHotKey.Text = "3";
+                    break;
+                case "D4":
+                    SaveHotKey.Text = "4";
+                    break;
+                case "D5":
+                    SaveHotKey.Text = "5";
+                    break;
+                case "D6":
+                    SaveHotKey.Text = "6";
+                    break;
+                case "D7":
+                    SaveHotKey.Text = "7";
+                    break;
+                case "D8":
+                    SaveHotKey.Text = "8";
+                    break;
+                case "D9":
+                    SaveHotKey.Text = "9";
+                    break;
+                default:
+                    SaveHotKey.Text = Settings1.Default.SaveHotkey.ToString();
+                    break;
+            }
         }
 
         public static List<FileInfo> GetFile(string path, string extName)
