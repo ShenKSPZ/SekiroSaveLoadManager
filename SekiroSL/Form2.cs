@@ -18,6 +18,7 @@ namespace SekiroSL
     {
 
         public List<FileInfo> FI = new List<FileInfo>();
+        public string Version = "Alpha1.4";
 
         public Form2()
         {
@@ -342,11 +343,12 @@ namespace SekiroSL
             string sourcecode = GetHttpWebRequest("https://shenkspz.wixsite.com/collection/blank");
             if(sourcecode != null)
             {
-                string VA = GetBetweenArr(sourcecode, "只狼存档工具&nbsp;<span style=\"font-size:17px;\">", "</span>");
+                string VA = GetBetweenArr(sourcecode, "只狼存档工具 <span style=\"font-size:17px;\">", "</span>");
                 if(VA != null)
                 {
-                    if (VA != Settings1.Default.Version)
+                    if (VA != Version)
                     {
+                        Console.WriteLine(VA);
                         if ((int)MessageBox.Show((Owner as Form1).Jo["NewVersion"].ToString() + VA, (Owner as Form1).Jo["SekiroSL"].ToString(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == 6)
                         {
                             System.Diagnostics.Process.Start("https://github.com/ShenKSPZ/SekiroSaveLoadManager/release");
