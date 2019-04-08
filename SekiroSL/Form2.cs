@@ -46,6 +46,7 @@ namespace SekiroSL
             radioButton1.Text = (Owner as Form1).Jo["Ting"].ToString();
             radioButton2.Text = (Owner as Form1).Jo["Google"].ToString();
             radioButton3.Text = (Owner as Form1).Jo["Mute"].ToString();
+            button2.Text = (Owner as Form1).Jo["AutoLocated"].ToString();
             if (Settings1.Default.SoundType == "Mute")
             {
                 radioButton3.Checked = true;
@@ -234,6 +235,7 @@ namespace SekiroSL
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            button2.Text = (Owner as Form1).Jo["AutoLocated"].ToString();
             (Owner as Form1).Language = Form1.FileToString(Environment.CurrentDirectory + @"\Localization\" + comboBox1.Text);
             (Owner as Form1).Jo = (JObject)JsonConvert.DeserializeObject((Owner as Form1).Language);
             LanguageLabel.Text = (Owner as Form1).Jo["Language"].ToString();
@@ -551,6 +553,35 @@ namespace SekiroSL
         {
             SaveHotKey.Text = "None";
             checkBox5.Checked = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(Environment.GetEnvironmentVariable("systemdrive") + @"\Users\" + Environment.UserName + @"\AppData\Roaming\Sekiro"))
+            {
+                openFileDialog1.FileName = Environment.GetEnvironmentVariable("systemdrive") + @"\Users\" + Environment.UserName + @"\AppData\Roaming\Sekiro";
+                DirectoryInfo Dir = new DirectoryInfo(Environment.GetEnvironmentVariable("systemdrive") + @"\Users\" + Environment.UserName + @"\AppData\Roaming\Sekiro");
+                DirectoryInfo[] di = Dir.GetDirectories();
+                if (di.Count() == 1)
+                {
+                    Settings1.Default.GameDirectory = di[0].FullName + @"\" + Settings1.Default.SaveFileName;
+                    MessageBox.Show((Owner as Form1).Jo["FindSekiro"].ToString());
+                }
+                else
+                {
+                    MessageBox.Show((Owner as Form1).Jo["SaveIntroduce"].ToString());
+                    openFileDialog1.ShowDialog();
+                    Settings1.Default.GameDirectory = openFileDialog1.FileName;
+                }
+            }
+            else
+            {
+                MessageBox.Show((Owner as Form1).Jo["CannotFindSekiro"].ToString());
+                openFileDialog1.ShowDialog();
+                Settings1.Default.GameDirectory = openFileDialog1.FileName;
+            }
+            Settings1.Default.Save();
+            textBox4.Text = Settings1.Default.GameDirectory;
         }
     }
 }
