@@ -18,7 +18,7 @@ namespace SekiroSL
     {
 
         public List<FileInfo> FI = new List<FileInfo>();
-        public string Version = "Alpha1.4";
+        public string Version = "Alpha1.5";
 
         public Form2()
         {

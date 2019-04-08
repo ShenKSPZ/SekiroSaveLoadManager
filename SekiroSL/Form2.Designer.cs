@@ -384,7 +384,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(198, 20);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Alpha1.4   Copyright by 深空";
+            this.label5.Text = "Alpha1.5   Copyright by 深空";
             // 
             // button1
             // 
