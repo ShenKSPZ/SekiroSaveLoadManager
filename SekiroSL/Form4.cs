@@ -54,7 +54,13 @@ namespace SekiroSL
                 else
                 {
                     MessageBox.Show((Owner as Form1).Jo["SaveIntroduce"].ToString());
+                    openFileDialog1.FileName = Environment.GetEnvironmentVariable("systemdrive") + @"\Users\" + Environment.UserName + @"\AppData\Roaming\Sekiro\S0000.sl2";
                     openFileDialog1.ShowDialog();
+                    while (!openFileDialog1.CheckFileExists)
+                    {
+                        MessageBox.Show((Owner as Form1).Jo["SaveIntroduce"].ToString());
+                        openFileDialog1.ShowDialog();
+                    }
                     Settings1.Default.GameDirectory = openFileDialog1.FileName;
                 }
             }

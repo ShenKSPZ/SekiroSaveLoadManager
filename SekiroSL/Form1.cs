@@ -60,6 +60,14 @@ namespace SekiroSL
             }
             SortToolStripMenuItem.Available = false;
             listBox1_SelectedIndexChanged(null,null);
+            if (comboBox1.Text != "")
+            {
+                SaveButton.Enabled = true;
+            }
+            else
+            {
+                SaveButton.Enabled = false;
+            }
         }
 
         protected override void WndProc(ref Message m)
@@ -147,7 +155,6 @@ namespace SekiroSL
                 renameToolStripMenuItem.Enabled = false;
                 deleteToolStripMenuItem.Enabled = true;
                 LoadButton.Enabled = false;
-                SaveButton.Enabled = true;
                 ReplaceButton.Enabled = false;
             }
             else if (listBox1.SelectedIndices.Count <= 0)
@@ -162,7 +169,6 @@ namespace SekiroSL
                 renameToolStripMenuItem.Enabled = true;
                 deleteToolStripMenuItem.Enabled = true;
                 LoadButton.Enabled = true;
-                SaveButton.Enabled = true;
                 ReplaceButton.Enabled = true;
             }
         }
